@@ -46,10 +46,11 @@
         .left-panel {
             width: 280px;
             padding-right: 40px;
-            margin-left: 16px;   /* 略微左移 */
+            margin-left: 16px;
         }
         .right-panel {
             flex: 1;
+            font-size: 14px;
         }
         a {
             color: #0645AD;
@@ -92,6 +93,20 @@
                 margin-bottom: 30px;
             }
         }
+        .skill-list, .interest-list, .contact-list {
+            margin: 0 0 16px 0;
+            padding-left: 18px;
+        }
+        .about-section {
+            margin-bottom: 28px;
+        }
+        .footer-counter {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            margin-top: 32px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -120,25 +135,14 @@
             </p>
         </div>
         <div class="right-panel" id="content">
-            <h2>About Me</h2>
-            <p>
-                Hello! I'm Guanyu Chen, an undergraduate student at the School of the Gifted Young (SGY), University of Science and Technology of China (USTC).<br>
-                I major in artificial intelligence, and am interested in large language models.
-            </p>
-        </div>
-    </div>
-
-    <script>
-        // 主页内容直接从页面获取，保证唯一性
-        const homeContent = document.getElementById('content').innerHTML;
-
-        function showHome() {
-            document.getElementById('content').innerHTML = homeContent;
-        }
-
-        function showExperience() {
-            document.getElementById('content').innerHTML = `
-                <h2>Experience</h2>
+           <h2>About Me</h2>
+            <div class="about-section">
+                <p>
+                    Hello! I'm <b>Guanyu Chen</b>, an undergraduate student at the School of the Gifted Young (SGY), University of Science and Technology of China (USTC).<br>
+                    Majoring in Artificial Intelligence, I am passionate about large language models, natural language processing, and computer science in general.
+                </p>
+            </div>
+            <div class="about-section">
                 <h3>Education</h3>
                 <ul>
                     <li>
@@ -152,6 +156,57 @@
                         Class of Chen Ning Yang<br>
                         Sep 2023 - Jun 2024
                     </li>
+                </ul>
+            </div>
+            <div class="about-section">
+                <h3>Skills</h3>
+                <ul class="skill-list">
+                    <li><b>Programming Languages:</b> Python, C/C++, MATLAB, LaTeX</li>
+                    <li><b>Mathematical Foundation:</b> Linear Algebra, Mathematical Analysis, Modern Algebra</li>
+                    <li><b>Languages:</b> Chinese (native), English (fluent)</li>
+                </ul>
+            </div>
+            <div class="about-section">
+                <h3>Interests</h3>
+                <ul class="interest-list">
+                    <li>Large Language Models (LLMs)</li>
+                    <li>Natural Language Processing</li>
+                    <li>Machine Learning & Deep Learning</li>
+                    <li>Algorithm Design</li>
+                    <li>Open Source Projects</li>
+                </ul>
+            </div>
+            <div class="about-section">
+                <h3>Contact</h3>
+                <ul class="contact-list">
+                    <li>Email: <a href="mailto:guanyuchen@mail.ustc.edu.cn">guanyuchen@mail.ustc.edu.cn</a></li>
+                    <li>GitHub: <a href="https://github.com/guanyu-chen08/" target="_blank">Guanyu-Chen08</a></li>
+                    <li>Address: 96 Jinzhai Road, University of Science and Technology of China, Baohe District, Hefei, Anhui, China</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 主页内容定义一次
+       const homeContent = document.getElementById('content').innerHTML;
+
+        // 首页显示函数，点击主页按钮也调用它
+        function showHome() {
+            document.getElementById('content').innerHTML = homeContent;
+        }
+
+        function showExperience() {
+            document.getElementById('content').innerHTML = `
+                <h2>Experience</h2>
+                <h3>Education Experience</h3>
+                In 2024, as a first-year student in Class of Chen Ning Yang in Hefei No.1 High School, I was selected into School of the Gifted Young in University of Science and Technology of China. 
+                <br>
+                Later, I found myself especially passionate about artificial intelligence, and got good scores in releated courses, such as computer programming and mathematical analysis. 
+                <br>
+                With a soild foundation and a strong interest in programming, and also considering the prospect, I finally chose AI as my major.
+                <h3>Honors & Awards</h3>
+                <ul>
+                    <li>Silver Award of Outstanding Freshman Scholarship, USTC, 2024</li>
                 </ul>
                 <p>Projects of mine will be listed.</p>
             `;
@@ -171,7 +226,7 @@
             `;
         }
 
-        // 页面加载时自动显示主页内容（其实此时已在首页，但保证刷新后JS和首页同步）
+        // 页面首次加载时自动显示主页内容
         window.onload = function() {
             showHome();
         }
