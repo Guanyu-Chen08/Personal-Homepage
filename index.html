@@ -58,6 +58,21 @@
         a:hover {
             text-decoration: underline;
         }
+        /* 个人信息部分字体更小，包括姓名 */
+        .profile-info {
+            font-size: 12px;
+        }
+        .profile-info h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 5px;
+            margin-bottom: 2px;
+        }
         h2 {
             margin-top: 0;
             font-size: 26px;
@@ -65,6 +80,18 @@
         }
         h2:nth-of-type(2n) {
             color: #b05e2c;
+        }
+        @media (max-width: 700px) {
+            .main {
+                flex-direction: column;
+                padding: 16px;
+            }
+            .left-panel {
+                width: auto;
+                margin-left: 0;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
         }
     </style>
 </head>
@@ -78,13 +105,19 @@
         </div>
     </div>
     <div class="main">
-        <div class="left-panel">
+        <div class="left-panel profile-info">
             <h2>Guanyu Chen</h2>
-            <p><strong>Undergraduate Student</strong></p>
-            <p><strong>School:</strong> USTC</p>
-            <p><strong>College:</strong> School of the Gifted Young</p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/" target="_blank">github.com</a></p>
-            <p><strong>Email:</strong> <a href="mailto:guanyu@email.com">guanyu@email.com</a></p>
+            <p>Undergraduate Student</p>
+            <p>School of the Gifted Young</p>
+            <p>University of Science and Technology of China</p>
+            <p>
+                <img class="icon" src="images/github-original.svg" alt="GitHub">
+                <a href="https://github.com/guanyu-chen08/" target="_blank">Github</a>
+            </p>
+            <p>
+                <img class="icon" src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/email.svg" alt="Email">
+                <a href="mailto:guanyuchen@mail.ustc.edu.cn">Email</a>
+            </p>
         </div>
         <div class="right-panel" id="content">
             <h2>About Me</h2>
