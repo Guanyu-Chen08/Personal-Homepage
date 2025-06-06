@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guanyu Chen's Homepage</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: serif;
+            background-color: #f5f5f5;
+            color: #000;
+            font-size: 17px;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            color: #000;
+            padding: 24px 48px;
+            border-bottom: 1px solid #ddd;
+        }
+        .navbar .left {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2b6cb0;
+            cursor: pointer;
+            margin-right: 60px;
+            white-space: nowrap;
+        }
+        .navbar .right {
+            display: flex;
+            gap: 30px;
+        }
+        .navbar .right div {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .navbar .right div:hover {
+            color: #1abc9c;
+        }
+        .main {
+            display: flex;
+            padding: 40px 48px;
+            background-color: #fafafa;
+        }
+        .left-panel {
+            width: 280px;
+            padding-right: 40px;
+            margin-left: 48px;
+        }
+        .right-panel {
+            flex: 1;
+        }
+        a {
+            color: #0645AD;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 26px;
+            color: #2c3e50;
+        }
+        h2:nth-of-type(2n) {
+            color: #b05e2c;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="left" onclick="showHome()">Guanyu Chen's Homepage</div>
+        <div class="right">
+            <div onclick="showExperience()">Experience</div>
+            <div onclick="showResearch()">Research</div>
+            <div onclick="showCV()">CV</div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="left-panel">
+            <h2>Guanyu Chen</h2>
+            <p><strong>School:</strong> USTC</p>
+            <p><strong>College:</strong> School of the Gifted Young</p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/" target="_blank">github.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:guanyu@email.com">guanyu@email.com</a></p>
+        </div>
+        <div class="right-panel" id="content">
+            <h2>About Me</h2>
+            <p>Hello! I'm Guanyu Chen, currently studying at the School of the Gifted Young, USTC. My research interests lie in artificial intelligence and computer science.</p>
+        </div>
+    </div>
+
+    <script>
+        function showHome() {
+            document.getElementById('content').innerHTML = `
+                <h2>About Me</h2>
+                <p>Hello! I'm Guanyu Chen, currently studying at the School of the Gifted Young, USTC. My research interests lie in artificial intelligence and computer science.</p>
+            `;
+        }
+
+        function showExperience() {
+            document.getElementById('content').innerHTML = `
+                <h2>Experience</h2>
+                <p>Here you can list your research projects, internships, or academic activities.</p>
+            `;
+        }
+
+        function showResearch() {
+            document.getElementById('content').innerHTML = `
+                <h2>Research</h2>
+                <p>My research interests include AI and Computer Science. More details about my projects and publications will be listed here.</p>
+            `;
+        }
+
+        function showCV() {
+            document.getElementById('content').innerHTML = `
+                <h2>CV</h2>
+                <p>You can upload or link to your CV here. For example: <a href="#">Download CV (PDF)</a></p>
+            `;
+        }
+    </script>
+</body>
+</html>
