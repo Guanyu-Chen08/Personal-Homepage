@@ -46,7 +46,7 @@
         .left-panel {
             width: 280px;
             padding-right: 40px;
-            margin-left: 48px;
+            margin-left: 16px;   /* 略微左移 */
         }
         .right-panel {
             flex: 1;
@@ -58,7 +58,6 @@
         a:hover {
             text-decoration: underline;
         }
-        /* 个人信息部分字体更小，包括姓名 */
         .profile-info {
             font-size: 12px;
         }
@@ -110,33 +109,51 @@
             <p>Undergraduate Student</p>
             <p>School of the Gifted Young</p>
             <p>University of Science and Technology of China</p>
+            <p>Major: Artificial Intelligence</p>
             <p>
                 <img class="icon" src="images/github-original.svg" alt="GitHub">
                 <a href="https://github.com/guanyu-chen08/" target="_blank">Github</a>
             </p>
             <p>
-                <img class="icon" src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/email.svg" alt="Email">
+                <img class="icon" src="images/email.svg" alt="Email">
                 <a href="mailto:guanyuchen@mail.ustc.edu.cn">Email</a>
             </p>
         </div>
         <div class="right-panel" id="content">
             <h2>About Me</h2>
-            <p>Hello! I'm Guanyu Chen, currently studying at the School of the Gifted Young, USTC. My research interests lie in artificial intelligence and computer science.</p>
+            <p>
+                Hello! I'm Guanyu Chen, an undergraduate student at the School of the Gifted Young (SGY), University of Science and Technology of China (USTC).<br>
+                I major in artificial intelligence, and am interested in large language models.
+            </p>
         </div>
     </div>
 
     <script>
+        // 主页内容直接从页面获取，保证唯一性
+        const homeContent = document.getElementById('content').innerHTML;
+
         function showHome() {
-            document.getElementById('content').innerHTML = `
-                <h2>About Me</h2>
-                <p>Hello! I'm Guanyu Chen, currently studying at the School of the Gifted Young, USTC. My research interests lie in artificial intelligence and computer science.</p>
-            `;
+            document.getElementById('content').innerHTML = homeContent;
         }
 
         function showExperience() {
             document.getElementById('content').innerHTML = `
                 <h2>Experience</h2>
-                <p>Here you can list your research projects, internships, or academic activities.</p>
+                <h3>Education</h3>
+                <ul>
+                    <li>
+                        <strong>University of Science and Technology of China (USTC)</strong><br>
+                        School of the Gifted Young<br>
+                        Major: Artificial Intelligence<br>
+                        Sep 2024 - Present
+                    </li>
+                    <li>
+                        <strong>Hefei No.1 High School</strong><br>
+                        Class of Chen Ning Yang<br>
+                        Sep 2023 - Jun 2024
+                    </li>
+                </ul>
+                <p>Projects of mine will be listed.</p>
             `;
         }
 
@@ -150,8 +167,13 @@
         function showCV() {
             document.getElementById('content').innerHTML = `
                 <h2>CV</h2>
-                <p>You can upload or link to your CV here. For example: <a href="#">Download CV (PDF)</a></p>
+                <p>Here is my latest CV.<a href="CV/Freahman CV"><br>Download CV (PDF)</a></p>
             `;
+        }
+
+        // 页面加载时自动显示主页内容（其实此时已在首页，但保证刷新后JS和首页同步）
+        window.onload = function() {
+            showHome();
         }
     </script>
 </body>
