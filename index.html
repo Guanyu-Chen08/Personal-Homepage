@@ -187,10 +187,7 @@
         </div>
     </div>
     <script>
-        // 主页内容定义一次
        const homeContent = document.getElementById('content').innerHTML;
-
-        // 首页显示函数，点击主页按钮也调用它
         function showHome() {
             document.getElementById('content').innerHTML = homeContent;
         }
@@ -222,11 +219,10 @@
        function showCV() {
             document.getElementById('content').innerHTML = `
             <h2>CV</h2>
-            <p>Here is my latest CV. <a href="CV/Freshman_CV" target="_blank">Download CV (PDF)</a></p>
+            <p>Here is my latest CV. <a href="CV/Freshman_CV.pdf" target="_blank">Download CV (PDF)</a></p>
         `;
         }
 
-        // 页面首次加载时自动显示主页内容
         window.onload = function() {
             showHome();
         }
