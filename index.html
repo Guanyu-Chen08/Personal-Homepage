@@ -107,6 +107,57 @@
             margin-top: 32px;
             margin-bottom: 10px;
         }
+        .code-stats-container {
+            margin: 20px 0;
+        }
+        .code-stats-chart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .code-stat-item {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .code-stat-item.python {
+            background-color: #2b6cb0;
+        }
+        .code-stat-item.javascript {
+            background-color: #1abc9c;
+        }
+        .code-stat-item.cpp {
+            background-color: #2c3e50;
+        }
+        .code-stat-item.html-css {
+            background-color: #b05e2c;
+        }
+        .code-stat-item.matlab {
+            background-color: #7f8c8d;
+        }
+        .code-stat-item .language {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .code-stat-item .percentage {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        @media (max-width: 700px) {
+            .code-stats-chart {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .code-stat-item {
+                min-width: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -165,6 +216,33 @@
                     <li><b>Mathematical Foundation:</b> Linear Algebra, Mathematical Analysis, Modern Algebra</li>
                     <li><b>Languages:</b> Chinese (native), English (fluent)</li>
                 </ul>
+            </div>
+            <div class="about-section">
+                <h3>Code Statistics</h3>
+                <div class="code-stats-container">
+                    <div class="code-stats-chart">
+                        <div class="code-stat-item python">
+                            <div class="language">Python</div>
+                            <div class="percentage">40%</div>
+                        </div>
+                        <div class="code-stat-item javascript">
+                            <div class="language">JavaScript</div>
+                            <div class="percentage">25%</div>
+                        </div>
+                        <div class="code-stat-item cpp">
+                            <div class="language">C++</div>
+                            <div class="percentage">20%</div>
+                        </div>
+                        <div class="code-stat-item html-css">
+                            <div class="language">HTML/CSS</div>
+                            <div class="percentage">10%</div>
+                        </div>
+                        <div class="code-stat-item matlab">
+                            <div class="language">MATLAB</div>
+                            <div class="percentage">5%</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="about-section">
                 <h3>Interests</h3>
