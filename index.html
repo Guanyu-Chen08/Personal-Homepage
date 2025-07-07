@@ -107,6 +107,88 @@
             margin-top: 32px;
             margin-bottom: 10px;
         }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            max-width: 100%;
+        }
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .doughnut-chart {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #2b6cb0 0deg 144deg,     /* Python 40% */
+                #1abc9c 144deg 234deg,   /* JavaScript 25% */
+                #2c3e50 234deg 306deg,   /* C++ 20% */
+                #b05e2c 306deg 342deg,   /* HTML/CSS 10% */
+                #95a5a6 342deg 360deg    /* MATLAB 5% */
+            );
+            margin-bottom: 20px;
+        }
+        .doughnut-chart::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: #fafafa;
+            border-radius: 50%;
+        }
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            font-size: 12px;
+            font-family: serif;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .legend-color.python { background-color: #2b6cb0; }
+        .legend-color.javascript { background-color: #1abc9c; }
+        .legend-color.cpp { background-color: #2c3e50; }
+        .legend-color.html { background-color: #b05e2c; }
+        .legend-color.matlab { background-color: #95a5a6; }
+        @media (max-width: 700px) {
+            .chart-wrapper {
+                height: 250px;
+                max-width: 300px;
+            }
+            .doughnut-chart {
+                width: 150px;
+                height: 150px;
+            }
+            .doughnut-chart::before {
+                width: 75px;
+                height: 75px;
+            }
+            .chart-legend {
+                font-size: 11px;
+                gap: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -167,6 +249,36 @@
                 </ul>
             </div>
             <div class="about-section">
+                <h3>Code Statistics</h3>
+                <div class="chart-container">
+                    <div class="chart-wrapper">
+                        <div class="doughnut-chart"></div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <div class="legend-color python"></div>
+                                <span>Python (40%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color javascript"></div>
+                                <span>JavaScript (25%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color cpp"></div>
+                                <span>C++ (20%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color html"></div>
+                                <span>HTML/CSS (10%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color matlab"></div>
+                                <span>MATLAB (5%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-section">
                 <h3>Interests</h3>
                 <ul class="interest-list">
                     <li>Large Language Models (LLMs)</li>
@@ -188,6 +300,7 @@
     </div>
     <script>
        const homeContent = document.getElementById('content').innerHTML;
+        
         function showHome() {
             document.getElementById('content').innerHTML = homeContent;
         }
